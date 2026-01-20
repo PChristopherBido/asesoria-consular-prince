@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servicios - Prince Christopher Bido</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        .tap-active:active { transform: scale(0.98); }
+    </style>
+</head>
+<body class="bg-slate-950 text-white min-h-screen flex flex-col items-center justify-center p-6 relative overflow-x-hidden">
+
+    <!-- Fondo decorativo con gradiente suave -->
+    <div class="absolute top-0 left-0 w-full h-96 bg-gradient-to-b from-blue-600/10 to-transparent -z-10"></div>
+
+    <div class="w-full max-w-md">
+        <!-- Encabezado de Perfil Profesional -->
+        <div class="text-center mb-10">
+            <div class="relative w-32 h-32 mx-auto mb-4 flex items-center justify-center">
+                <!-- Foto de Perfil Principal -->
+                <img src="perfil.png" alt="Prince Christopher Bido" class="w-full h-full object-cover rounded-3xl shadow-2xl border border-slate-800 transition-transform duration-500 hover:scale-105" onerror="this.src='https://ui-avatars.com/api/?name=Prince+Bido&background=0D8ABC&color=fff&size=128'">
+            </div>
+            <h1 class="text-2xl font-bold tracking-tight">Prince Christopher Bido</h1>
+            <p class="text-blue-500 text-xs font-bold uppercase tracking-[0.2em] mt-1">Asesor Migratorio Certificado</p>
+            <div class="flex justify-center items-center gap-2 mt-2 opacity-40">
+                <i class="fa-solid fa-location-dot text-[10px]"></i>
+                <span class="text-[10px] uppercase tracking-widest font-medium">República Dominicana</span>
+            </div>
+        </div>
+
+        <!-- Listado de Servicios Actualizado -->
+        <div class="space-y-4">
+
+            <!-- Visas de Turismo -->
+            <a href="visas_turismo.html" class="tap-active group flex items-center justify-between w-full p-5 bg-blue-600/10 border border-blue-500/30 rounded-2xl transition-all hover:bg-blue-600/20 shadow-xl">
+                <div class="flex items-center gap-4">
+                    <div class="w-12 h-12 bg-blue-500/20 rounded-xl flex items-center justify-center">
+                        <i class="fa-solid fa-plane text-blue-400 text-xl"></i>
+                    </div>
+                    <div class="text-left">
+                        <h3 class="font-bold text-slate-100 text-sm">Visas de Turismo</h3>
+                        <p class="text-[10px] text-blue-400 font-bold uppercase tracking-wider">USA • Schengen • Canadá</p>
+                    </div>
+                </div>
+                <div class="flex items-center gap-2">
+                    <span class="text-[8px] bg-blue-500 text-white px-2 py-0.5 rounded-full font-bold uppercase">Popular</span>
+                    <i class="fa-solid fa-chevron-right text-blue-500 text-xs transition-transform group-hover:translate-x-1"></i>
+                </div>
+            </a>
+
+            <!-- NUEVO: Pasaporte Electrónico -->
+            <a href="brochure_pasaporte.html" class="tap-active group flex items-center justify-between w-full p-5 bg-slate-900 border border-slate-800 rounded-2xl transition-all hover:border-blue-400/50 hover:bg-slate-800 shadow-lg">
+                <div class="flex items-center gap-4">
+                    <div class="w-12 h-12 bg-blue-400/10 rounded-xl flex items-center justify-center group-hover:bg-blue-400/20 transition-colors">
+                        <i class="fa-solid fa-microchip text-blue-400 text-xl"></i>
+                    </div>
+                    <div class="text-left">
+                        <h3 class="font-bold text-slate-100 text-sm">Pasaporte Electrónico</h3>
+                        <p class="text-[10px] text-slate-500 uppercase font-medium italic">Biométrico / 10 Años</p>
+                    </div>
+                </div>
+                <div class="flex items-center gap-2">
+                    <span class="text-[8px] border border-blue-400 text-blue-400 px-2 py-0.5 rounded-full font-bold uppercase">Nuevo</span>
+                    <i class="fa-solid fa-chevron-right text-slate-700 group-hover:text-blue-400 transition-all text-xs group-hover:translate-x-1"></i>
+                </div>
+            </a>
+
+            <!-- Permiso de Viaje NNA -->
+            <a href="permiso_viaje_nna.html" class="tap-active group flex items-center justify-between w-full p-5 bg-slate-900 border border-slate-800 rounded-2xl transition-all hover:border-red-500/50 hover:bg-slate-800 shadow-lg">
+                <div class="flex items-center gap-4">
+                    <div class="w-12 h-12 bg-red-500/10 rounded-xl flex items-center justify-center group-hover:bg-red-500/20 transition-colors">
+                        <i class="fa-solid fa-plane-departure text-red-500 text-xl"></i>
+                    </div>
+                    <div class="text-left">
+                        <h3 class="font-bold text-slate-100 text-sm">Permiso de Viaje NNA</h3>
+                        <p class="text-[10px] text-slate-500 uppercase font-medium">Salida de Menores de RD</p>
+                    </div>
+                </div>
+                <i class="fa-solid fa-chevron-right text-slate-700 group-hover:text-red-500 transition-all text-xs group-hover:translate-x-1"></i>
+            </a>
+
+            <!-- Visa RS & Residencia por Matrimonio -->
+            <a href="brochure_migratorio.html" class="tap-active group flex items-center justify-between w-full p-5 bg-slate-900 border border-slate-800 rounded-2xl transition-all hover:border-blue-500/50 hover:bg-slate-800 shadow-lg">
+                <div class="flex items-center gap-4">
+                    <div class="w-12 h-12 bg-blue-500/10 rounded-xl flex items-center justify-center group-hover:bg-blue-500/20 transition-colors">
+                        <i class="fa-solid fa-passport text-blue-500 text-xl"></i>
+                    </div>
+                    <div class="text-left">
+                        <h3 class="font-bold text-slate-100 text-sm">Visa RS & Residencia</h3>
+                        <p class="text-[10px] text-slate-500 uppercase font-medium">Unificación Familiar (RT-9)</p>
+                    </div>
+                </div>
+                <i class="fa-solid fa-chevron-right text-slate-700 group-hover:text-blue-500 transition-all text-xs group-hover:translate-x-1"></i>
+            </a>
+
+        </div>
+
+        <!-- Footer Informativo -->
+        <footer class="mt-16 text-center">
+            <p class="text-[9px] text-slate-600 uppercase tracking-[0.5em] font-bold italic">Asesoría Profesional Certificada</p>
+            <p class="text-[8px] text-slate-800 uppercase tracking-[0.2em] mt-4">© 2026 Prince Christopher Bido</p>
+        </footer>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Residencia por Matrimonio - Prince Christopher Bido</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&display=swap');
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .page-transition { animation: fadeIn 0.4s ease-out; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        .indicator-dot { transition: all 0.3s ease; }
+        .indicator-dot.active { width: 24px; background-color: #2563eb; }
+
+        .package-item { border-left: 4px solid #e2e8f0; transition: all 0.3s ease; }
+        .package-item.gold { border-left-color: #2563eb; background-color: #f8faff; }
+        .package-item.diamond { border-left-color: #f59e0b; background-color: #fffcf5; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900">
+    <div id="app" class="max-w-md mx-auto min-h-screen bg-white shadow-2xl relative overflow-hidden flex flex-col">
+
+        <!-- Header Minimalista -->
+        <div id="simple-header" class="px-6 pt-10 pb-4 flex justify-between items-center border-b border-slate-50 bg-white sticky top-0 z-20">
+            <div>
+                <p class="text-[10px] font-bold text-blue-600 uppercase tracking-widest">Unificación Familiar</p>
+                <h2 id="dynamic-title" class="text-lg font-extrabold text-slate-800 tracking-tight">Cargando...</h2>
+            </div>
+            <div class="flex gap-1.5" id="dots-container"></div>
+        </div>
+
+        <!-- Área de Contenido Dinámico -->
+        <div class="flex-grow px-6 pb-32 pt-6 overflow-y-auto page-transition" id="content-area">
+            <!-- JS Inject -->
+        </div>
+
+        <!-- Navegación Inferior -->
+        <div class="absolute bottom-0 left-0 w-full p-6 bg-white/90 backdrop-blur-lg border-t border-slate-100 flex justify-between items-center gap-4">
+            <button onclick="prevPage()" id="prev-btn" class="flex-1 py-4 px-4 rounded-2xl font-bold text-slate-400 hover:bg-slate-50 transition-colors hidden">
+                <i class="fa-solid fa-arrow-left mr-2 text-xs"></i> Atrás
+            </button>
+            <button onclick="nextPage()" id="next-btn" class="flex-[2] py-4 px-6 rounded-2xl font-bold text-white bg-slate-900 hover:bg-slate-800 shadow-xl shadow-slate-200 transition-all active:scale-95 flex items-center justify-center gap-2">
+                <span>Continuar</span>
+                <i class="fa-solid fa-arrow-right text-xs"></i>
+            </button>
+        </div>
+    </div>
+
+    <script>
+        let currentPage = 0;
+        const totalPages = 5;
+        const whatsappNumber = "8297826451";
+
+        const pages = [
+            {
+                title: "Visa de Residencia (RS)",
+                content: `
+                    <div class="text-center mt-2">
+                        <div class="w-20 h-20 bg-blue-50 rounded-3xl flex items-center justify-center mx-auto mb-6 text-blue-600 shadow-inner">
+                            <i class="fa-solid fa-passport text-3xl"></i>
+                        </div>
+                        <h2 class="text-2xl font-bold text-slate-800 mb-4 italic">Visa RS & Residencia</h2>
+                        <p class="text-slate-500 text-sm leading-relaxed mb-6">Proceso completo de unificación familiar para extranjeros casados con ciudadanos dominicanos.</p>
+                        <div class="grid grid-cols-2 gap-4 text-left">
+                            <div class="p-4 bg-slate-50 rounded-2xl border border-slate-100">
+                                <i class="fa-solid fa-ring text-blue-600 mb-2"></i>
+                                <h4 class="font-bold text-[11px] uppercase tracking-tighter">Matrimonio</h4>
+                                <p class="text-[10px] text-slate-500 leading-tight">Legalización de vínculos en RD.</p>
+                            </div>
+                            <div class="p-4 bg-slate-50 rounded-2xl border border-slate-100">
+                                <i class="fa-solid fa-file-signature text-blue-600 mb-2"></i>
+                                <h4 class="font-bold text-[11px] uppercase tracking-tighter">Visa RS</h4>
+                                <p class="text-[10px] text-slate-500 leading-tight">Gestión consular inicial.</p>
+                            </div>
+                        </div>
+                    </div>`
+            },
+            {
+                title: "Etapa 1: Visa RS",
+                content: `
+                    <div class="space-y-4">
+                        <p class="text-xs text-slate-500 mb-4 leading-relaxed">Antes de solicitar la residencia en territorio dominicano, el extranjero debe obtener la Visa de Residencia (RS) en su país de origen o residencia legal.</p>
+                        <div class="p-4 bg-white border border-slate-100 rounded-2xl shadow-sm flex gap-4 items-start">
+                            <div class="w-8 h-8 rounded-lg bg-blue-50 flex items-center justify-center flex-shrink-0">
+                                <i class="fa-solid fa-check-double text-blue-500 text-sm"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-sm">Documentación Base</h4>
+                                <p class="text-xs text-slate-500 leading-relaxed">Acta de matrimonio extensa legalizada, antecedentes penales y solvencia económica del garante.</p>
+                            </div>
+                        </div>
+                        <div class="p-4 bg-white border border-slate-100 rounded-2xl shadow-sm flex gap-4 items-start">
+                            <div class="w-8 h-8 rounded-lg bg-blue-50 flex items-center justify-center flex-shrink-0">
+                                <i class="fa-solid fa-clock text-blue-500 text-sm"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-sm">Vigencia</h4>
+                                <p class="text-xs text-slate-500">La Visa RS tiene una vigencia de 60 días para un solo uso (entrar a RD a iniciar residencia).</p>
+                            </div>
+                        </div>
+                    </div>`
+            },
+            {
+                title: "Etapa 2: Residencia",
+                content: `
+                    <div class="space-y-4">
+                        <div class="bg-blue-600 p-5 rounded-3xl text-white shadow-lg mb-6">
+                            <h4 class="font-bold text-sm mb-2">Trámite ante la DGM</h4>
+                            <p class="text-[11px] opacity-90 leading-relaxed">Una vez en República Dominicana, iniciamos el proceso formal ante la Dirección General de Migración.</p>
+                        </div>
+                        <ul class="space-y-4 px-2">
+                            <li class="flex items-center gap-4">
+                                <div class="w-6 h-6 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center text-[10px] font-bold flex-shrink-0">1</div>
+                                <span class="text-xs font-medium text-slate-700">Exámenes médicos oficiales obligatorios.</span>
+                            </li>
+                            <li class="flex items-center gap-4">
+                                <div class="w-6 h-6 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center text-[10px] font-bold flex-shrink-0">2</div>
+                                <span class="text-xs font-medium text-slate-700">Depósito de expediente físico y biometría.</span>
+                            </li>
+                            <li class="flex items-center gap-4">
+                                <div class="w-6 h-6 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center text-[10px] font-bold flex-shrink-0">3</div>
+                                <span class="text-xs font-medium text-slate-700">Obtención de carnet de Residencia Temporal.</span>
+                            </li>
+                        </ul>
+                    </div>`
+            },
+            {
+                title: "Planes de Inversión",
+                content: `
+                    <div class="space-y-4">
+                        <!-- Paquete Plata -->
+                        <div class="package-item p-4 rounded-r-2xl bg-slate-50">
+                            <div class="flex justify-between items-center mb-2">
+                                <h4 class="text-xs font-black text-slate-500 uppercase tracking-widest">Paquete Plata</h4>
+                                <span class="text-sm font-black text-slate-800">1,700 USD</span>
+                            </div>
+                            <ul class="space-y-1">
+                                <li class="text-[10px] text-slate-600 flex items-center gap-2">
+                                    <i class="fa-solid fa-circle text-[4px] text-slate-400"></i>
+                                    Asesoría de expediente completo.
+                                </li>
+                                <li class="text-[10px] text-slate-600 flex items-center gap-2">
+                                    <i class="fa-solid fa-circle text-[4px] text-slate-400"></i>
+                                    Preparación de formularios de solicitud.
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- Paquete Oro -->
+                        <div class="package-item gold p-4 rounded-r-2xl">
+                            <div class="flex justify-between items-center mb-2">
+                                <div class="flex items-center gap-2">
+                                    <h4 class="text-xs font-black text-blue-600 uppercase tracking-widest">Paquete Oro</h4>
+                                    <span class="text-[8px] bg-blue-600 text-white px-2 py-0.5 rounded-full font-bold">RECOMENDADO</span>
+                                </div>
+                                <span class="text-sm font-black text-blue-700">1,850 USD</span>
+                            </div>
+                            <ul class="space-y-1">
+                                <li class="text-[10px] text-slate-700 font-bold flex items-center gap-2">
+                                    <i class="fa-solid fa-check text-[8px] text-blue-600"></i>
+                                    Incluye todo lo del Paquete Plata.
+                                </li>
+                                <li class="text-[10px] text-slate-600 flex items-center gap-2">
+                                    <i class="fa-solid fa-circle text-[4px] text-blue-400"></i>
+                                    Gestión de citas consulares.
+                                </li>
+                                <li class="text-[10px] text-slate-600 flex items-center gap-2">
+                                    <i class="fa-solid fa-circle text-[4px] text-blue-400"></i>
+                                    Seguimiento continuo de visado.
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- Paquete Diamante -->
+                        <div class="package-item diamond p-4 rounded-r-2xl">
+                            <div class="flex justify-between items-center mb-2">
+                                <h4 class="text-xs font-black text-amber-600 uppercase tracking-widest">Paquete Diamante</h4>
+                                <span class="text-sm font-black text-amber-700">2,000 USD</span>
+                            </div>
+                            <ul class="space-y-1">
+                                <li class="text-[10px] text-slate-700 font-bold flex items-center gap-2">
+                                    <i class="fa-solid fa-check text-[8px] text-amber-600"></i>
+                                    Incluye todo lo del Paquete Oro.
+                                </li>
+                                <li class="text-[10px] text-slate-600 flex items-center gap-2">
+                                    <i class="fa-solid fa-circle text-[4px] text-amber-400"></i>
+                                    Acompañamiento presencial a la DGM.
+                                </li>
+                                <li class="text-[10px] text-slate-600 flex items-center gap-2">
+                                    <i class="fa-solid fa-circle text-[4px] text-amber-400"></i>
+                                    Gestión de exámenes médicos y carnet.
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="mt-2 p-3 bg-blue-50 rounded-xl border border-blue-100 text-center">
+                            <p class="text-[10px] text-blue-800 font-bold uppercase tracking-tight">Precios incluyen impuestos gubernamentales.</p>
+                        </div>
+                    </div>`
+            },
+            {
+                title: "Inicia tu Nueva Vida",
+                content: `
+                    <div class="text-center mt-2 flex flex-col items-center">
+                        <div class="relative w-28 h-28 mb-4">
+                            <div class="absolute inset-0 bg-gradient-to-tr from-blue-600 to-blue-400 rounded-full animate-pulse opacity-30 blur-sm"></div>
+                            <div class="relative w-full h-full rounded-full border-4 border-white overflow-hidden shadow-xl bg-slate-800 flex items-center justify-center">
+                                <img src="perfil.png" alt="Prince Christopher Bido" class="w-full h-full object-cover" onerror="this.src='https://ui-avatars.com/api/?name=Prince+Bido&background=2563eb&color=fff'">
+                            </div>
+                        </div>
+                        <h1 class="text-2xl font-extrabold text-slate-800 leading-tight">Prince Christopher Bido</h1>
+                        <p class="text-[10px] font-bold text-blue-600 uppercase tracking-widest mt-1 mb-6">Asesor Migratorio Certificado</p>
+                        <p class="text-slate-500 text-sm mb-8 px-4 italic leading-relaxed">"Hacemos que el proceso de vivir legalmente en República Dominicana sea una experiencia sin estrés."</p>
+                        <div class="space-y-4 w-full">
+                            <a href="https://wa.me/${whatsappNumber}" class="flex items-center justify-center gap-3 w-full py-5 bg-green-500 hover:bg-green-600 text-white rounded-2xl font-bold shadow-xl shadow-green-100 transition-all active:scale-95">
+                                <i class="fa-brands fa-whatsapp text-2xl"></i>
+                                <span>Solicitar Asesoría</span>
+                            </a>
+                            <a href="index.html" class="inline-block py-3 text-xs font-bold text-slate-400 uppercase tracking-widest hover:text-blue-600 transition-colors">Volver al Menú</a>
+                        </div>
+                    </div>`
+            }
+        ];
+
+        function createDots() {
+            const container = document.getElementById('dots-container');
+            container.innerHTML = '';
+            for (let i = 0; i < totalPages; i++) {
+                const dot = document.createElement('div');
+                dot.className = `indicator-dot h-1.5 rounded-full ${i === currentPage ? 'active' : 'w-1.5 bg-slate-200'}`;
+                container.appendChild(dot);
+            }
+        }
+
+        function renderPage() {
+            const contentArea = document.getElementById('content-area');
+            const header = document.getElementById('simple-header');
+            const titleElement = document.getElementById('dynamic-title');
+
+            contentArea.classList.remove('page-transition');
+            void contentArea.offsetWidth;
+            contentArea.classList.add('page-transition');
+
+            titleElement.innerText = pages[currentPage].title;
+
+            if (currentPage === totalPages - 1) {
+                header.classList.add('hidden');
+            } else {
+                header.classList.remove('hidden');
+            }
+
+            contentArea.innerHTML = `
+                <h3 class="text-xs font-black uppercase tracking-[0.2em] text-slate-300 mb-4 ${currentPage === totalPages - 1 ? 'hidden' : ''}">Sección ${currentPage + 1} de ${totalPages}</h3>
+                ${pages[currentPage].content}
+            `;
+
+            document.getElementById('prev-btn').classList.toggle('hidden', currentPage === 0);
+            const nextBtn = document.getElementById('next-btn');
+
+            if (currentPage === totalPages - 1) {
+                nextBtn.innerHTML = '<span>Finalizar</span> <i class="fa-solid fa-check"></i>';
+                nextBtn.onclick = () => window.location.href = `https://wa.me/${whatsappNumber}`;
+            } else {
+                nextBtn.innerHTML = '<span>Continuar</span> <i class="fa-solid fa-arrow-right text-xs"></i>';
+                nextBtn.onclick = nextPage;
+            }
+            createDots();
+        }
+
+        function nextPage() { if (currentPage < totalPages - 1) { currentPage++; renderPage(); } }
+        function prevPage() { if (currentPage > 0) { currentPage--; renderPage(); } }
+
+        window.onload = renderPage;
+    </script>
+</body>
+</html>

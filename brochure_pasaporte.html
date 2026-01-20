@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pasaporte Electrónico - Prince Christopher Bido</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&display=swap');
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .page-transition { animation: fadeIn 0.4s ease-out; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        .indicator-dot { transition: all 0.3s ease; }
+        .indicator-dot.active { width: 24px; background-color: #3b82f6; }
+        .chip-gradient { background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%); }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900">
+    <div id="app" class="max-w-md mx-auto min-h-screen bg-white shadow-2xl relative overflow-hidden flex flex-col">
+
+        <!-- Header -->
+        <div id="simple-header" class="px-6 pt-10 pb-4 flex justify-between items-center border-b border-slate-50 bg-white sticky top-0 z-20">
+            <div>
+                <p class="text-[10px] font-bold text-blue-600 uppercase tracking-widest">Servicio Biométrico</p>
+                <h2 id="dynamic-title" class="text-lg font-extrabold text-slate-800 tracking-tight">Cargando...</h2>
+            </div>
+            <div class="flex gap-1.5" id="dots-container"></div>
+        </div>
+
+        <!-- Área de Contenido -->
+        <div class="flex-grow px-6 pb-32 pt-6 overflow-y-auto page-transition" id="content-area">
+            <!-- JS Inject -->
+        </div>
+
+        <!-- Navegación -->
+        <div class="absolute bottom-0 left-0 w-full p-6 bg-white/90 backdrop-blur-lg border-t border-slate-100 flex justify-between items-center gap-4">
+            <button onclick="prevPage()" id="prev-btn" class="flex-1 py-4 px-4 rounded-2xl font-bold text-slate-400 hover:bg-slate-50 transition-colors hidden">
+                <i class="fa-solid fa-arrow-left mr-2 text-xs"></i>
+            </button>
+            <button onclick="nextPage()" id="next-btn" class="flex-[2] py-4 px-6 rounded-2xl font-bold text-white bg-slate-900 hover:bg-slate-800 shadow-xl shadow-slate-200 transition-all active:scale-95 flex items-center justify-center gap-2">
+                <span>Continuar</span>
+                <i class="fa-solid fa-arrow-right text-xs"></i>
+            </button>
+        </div>
+    </div>
+
+    <script>
+        let currentPage = 0;
+        const totalPages = 5;
+        const whatsappNumber = "8297826451";
+
+        const pages = [
+            {
+                title: "El Futuro en tus Manos",
+                content: `
+                    <div class="text-center mt-2">
+                        <div class="w-24 h-16 chip-gradient rounded-xl flex items-center justify-center mx-auto mb-6 shadow-xl relative overflow-hidden">
+                            <div class="absolute top-0 left-0 w-full h-full opacity-20" style="background-image: radial-gradient(#3b82f6 1px, transparent 1px); background-size: 4px 4px;"></div>
+                            <i class="fa-solid fa-microchip text-blue-400 text-3xl"></i>
+                        </div>
+                        <h2 class="text-2xl font-bold text-slate-800 mb-4 italic">Pasaporte Electrónico</h2>
+                        <p class="text-slate-500 text-sm leading-relaxed mb-6">Gestionamos tu documento de viaje de última generación con validez de 10 años.</p>
+                        <div class="space-y-3 text-left">
+                            <div class="p-4 bg-slate-50 rounded-2xl border border-slate-100 flex items-center gap-4">
+                                <i class="fa-solid fa-bolt-lightning text-blue-600"></i>
+                                <div>
+                                    <h4 class="font-bold text-[11px] uppercase tracking-tighter text-slate-800">E-Gates Ready</h4>
+                                    <p class="text-[10px] text-slate-500">Entrada rápida en aeropuertos de EE.UU. y Europa.</p>
+                                </div>
+                            </div>
+                            <div class="p-4 bg-slate-50 rounded-2xl border border-slate-100 flex items-center gap-4">
+                                <i class="fa-solid fa-fingerprint text-blue-600"></i>
+                                <div>
+                                    <h4 class="font-bold text-[11px] uppercase tracking-tighter text-slate-800">Seguridad Máxima</h4>
+                                    <p class="text-[10px] text-slate-500">Chip biométrico y lámina de policarbonato.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>`
+            },
+            {
+                title: "Requisitos Obligatorios",
+                content: `
+                    <div class="space-y-4">
+                        <div class="p-4 bg-white border border-slate-100 rounded-2xl shadow-sm flex gap-4 items-start">
+                            <div class="w-8 h-8 rounded-lg bg-blue-50 flex items-center justify-center flex-shrink-0">
+                                <i class="fa-solid fa-id-card text-blue-500 text-sm"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-sm">Documento de Identidad</h4>
+                                <p class="text-[11px] text-slate-500">Cédula original, vigente y en buen estado. Acta de nacimiento solo si es primera vez.</p>
+                            </div>
+                        </div>
+                        <div class="p-4 bg-white border border-slate-100 rounded-2xl shadow-sm flex gap-4 items-start">
+                            <div class="w-8 h-8 rounded-lg bg-blue-50 flex items-center justify-center flex-shrink-0">
+                                <i class="fa-solid fa-passport text-blue-500 text-sm"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-sm">Pasaporte Anterior</h4>
+                                <p class="text-[11px] text-slate-500">Indispensable para renovación. En caso de pérdida, se requiere certificación policial.</p>
+                            </div>
+                        </div>
+                        <div class="p-4 bg-white border border-slate-100 rounded-2xl shadow-sm flex gap-4 items-start">
+                            <div class="w-8 h-8 rounded-lg bg-blue-50 flex items-center justify-center flex-shrink-0">
+                                <i class="fa-solid fa-child text-blue-500 text-sm"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-sm">Menores de Edad</h4>
+                                <p class="text-[11px] text-slate-500">Presencia de ambos padres con cédulas originales y acta de nacimiento para fines de pasaporte.</p>
+                            </div>
+                        </div>
+                    </div>`
+            },
+            {
+                title: "Inversión y Gestión",
+                content: `
+                    <div class="space-y-3">
+                        <div class="bg-slate-900 p-5 rounded-3xl text-white shadow-xl mb-4">
+                            <div class="flex justify-between items-center mb-2">
+                                <h4 class="text-[10px] font-black uppercase tracking-widest text-blue-400">Honorarios de Asesoría</h4>
+                                <span class="text-xl font-black italic">250 USD</span>
+                            </div>
+                            <p class="text-[11px] opacity-70 leading-relaxed">Gestión profesional de principio a fin para garantizar tu documento.</p>
+                        </div>
+
+                        <div class="space-y-2">
+                            <div class="flex items-center gap-3 p-3 rounded-xl hover:bg-slate-50 transition-colors">
+                                <i class="fa-solid fa-circle-check text-blue-500 text-xs"></i>
+                                <span class="text-xs font-medium text-slate-700">Gestión Integral de Cita Biométrica VIP</span>
+                            </div>
+                            <div class="flex items-center gap-3 p-3 rounded-xl hover:bg-slate-50 transition-colors">
+                                <i class="fa-solid fa-circle-check text-blue-500 text-xs"></i>
+                                <span class="text-xs font-medium text-slate-700">Auditoría de Perfil y Verificación de Datos</span>
+                            </div>
+                            <div class="flex items-center gap-3 p-3 rounded-xl hover:bg-slate-50 transition-colors">
+                                <i class="fa-solid fa-circle-check text-blue-500 text-xs"></i>
+                                <span class="text-xs font-medium text-slate-700">Carga Profesional de Documentación a la DGP</span>
+                            </div>
+                            <div class="flex items-center gap-3 p-3 rounded-xl hover:bg-slate-50 transition-colors">
+                                <i class="fa-solid fa-circle-check text-blue-500 text-xs"></i>
+                                <span class="text-xs font-medium text-slate-700">Asistencia con el Pago de Impuestos Oficiales</span>
+                            </div>
+                        </div>
+
+                        <div class="mt-4 p-3 bg-blue-50 rounded-xl border border-blue-100">
+                            <p class="text-[10px] text-blue-800 font-bold leading-tight uppercase tracking-tight text-center">Gestión rápida y segura sin errores de validación.</p>
+                        </div>
+                    </div>`
+            },
+            {
+                title: "Guía para el Día de tu Cita",
+                content: `
+                    <div class="space-y-4">
+                        <div class="p-4 bg-amber-50 rounded-2xl border border-amber-100">
+                            <h4 class="text-[10px] font-black text-amber-700 uppercase mb-3 tracking-widest">Protocolo de Imagen</h4>
+                            <div class="grid grid-cols-2 gap-3">
+                                <div class="text-[10px] text-amber-800 leading-tight">
+                                    <i class="fa-solid fa-camera mb-1 block"></i>
+                                    <strong>Vestimenta:</strong> Evitar color blanco o colores muy claros.
+                                </div>
+                                <div class="text-[10px] text-amber-800 leading-tight">
+                                    <i class="fa-solid fa-eye mb-1 block"></i>
+                                    <strong>Rostro:</strong> Sin lentes de contacto de color o maquillaje excesivo.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="space-y-3 px-1">
+                            <div class="flex gap-3 items-start">
+                                <i class="fa-solid fa-clock text-slate-400 text-xs mt-1"></i>
+                                <p class="text-[11px] text-slate-600"><strong>Puntualidad:</strong> Llegar 15 minutos antes de la hora pautada.</p>
+                            </div>
+                            <div class="flex gap-3 items-start">
+                                <i class="fa-solid fa-triangle-exclamation text-slate-400 text-xs mt-1"></i>
+                                <p class="text-[11px] text-slate-600"><strong>Cuidado del Chip:</strong> No doblar el documento ni exponerlo a altas temperaturas.</p>
+                            </div>
+                            <div class="flex gap-3 items-start">
+                                <i class="fa-solid fa-shield-heart text-slate-400 text-xs mt-1"></i>
+                                <p class="text-[11px] text-slate-600"><strong>Seguro de Repatriación:</strong> Incluido automáticamente en el nuevo pasaporte.</p>
+                            </div>
+                        </div>
+                    </div>`
+            },
+            {
+                title: "Tu Pasaporte, Mi Compromiso",
+                content: `
+                    <div class="text-center mt-2 flex flex-col items-center">
+                        <div class="relative w-28 h-28 mb-4">
+                            <div class="absolute inset-0 bg-gradient-to-tr from-blue-600 to-blue-400 rounded-full animate-pulse opacity-30 blur-sm"></div>
+                            <div class="relative w-full h-full rounded-full border-4 border-white overflow-hidden shadow-xl bg-slate-800 flex items-center justify-center">
+                                <img src="perfil.png" alt="Prince Christopher Bido" class="w-full h-full object-cover" onerror="this.src='https://ui-avatars.com/api/?name=Prince+Bido&background=2563eb&color=fff'">
+                            </div>
+                        </div>
+                        <h1 class="text-2xl font-extrabold text-slate-800 leading-tight">Prince Christopher Bido</h1>
+                        <p class="text-[10px] font-bold text-blue-600 uppercase tracking-widest mt-1 mb-6">Asesor Migratorio Certificado</p>
+
+                        <div class="space-y-4 w-full">
+                            <a href="https://wa.me/${whatsappNumber}" class="flex items-center justify-center gap-3 w-full py-5 bg-green-500 hover:bg-green-600 text-white rounded-2xl font-bold shadow-xl shadow-green-100 transition-all active:scale-95">
+                                <i class="fa-brands fa-whatsapp text-2xl"></i>
+                                <span>Iniciar Trámite Ahora</span>
+                            </a>
+                            <a href="index.html" class="inline-block py-3 text-xs font-bold text-slate-400 uppercase tracking-widest hover:text-blue-600 transition-colors">Volver al Menú Principal</a>
+                        </div>
+                    </div>`
+            }
+        ];
+
+        function createDots() {
+            const container = document.getElementById('dots-container');
+            container.innerHTML = '';
+            for (let i = 0; i < totalPages; i++) {
+                const dot = document.createElement('div');
+                dot.className = `indicator-dot h-1.5 rounded-full ${i === currentPage ? 'active' : 'w-1.5 bg-slate-200'}`;
+                container.appendChild(dot);
+            }
+        }
+
+        function renderPage() {
+            const contentArea = document.getElementById('content-area');
+            const header = document.getElementById('simple-header');
+            const titleElement = document.getElementById('dynamic-title');
+
+            contentArea.classList.remove('page-transition');
+            void contentArea.offsetWidth;
+            contentArea.classList.add('page-transition');
+
+            titleElement.innerText = pages[currentPage].title;
+
+            if (currentPage === totalPages - 1) {
+                header.classList.add('hidden');
+            } else {
+                header.classList.remove('hidden');
+            }
+
+            contentArea.innerHTML = `
+                <h3 class="text-xs font-black uppercase tracking-[0.2em] text-slate-300 mb-4 ${currentPage === totalPages - 1 ? 'hidden' : ''}">Sección ${currentPage + 1} de ${totalPages}</h3>
+                ${pages[currentPage].content}
+            `;
+
+            document.getElementById('prev-btn').classList.toggle('hidden', currentPage === 0);
+            const nextBtn = document.getElementById('next-btn');
+
+            if (currentPage === totalPages - 1) {
+                nextBtn.innerHTML = '<span>Agendar Cita</span> <i class="fa-solid fa-calendar-check"></i>';
+                nextBtn.onclick = () => window.location.href = `https://wa.me/${whatsappNumber}`;
+            } else {
+                nextBtn.innerHTML = '<span>Siguiente</span> <i class="fa-solid fa-arrow-right text-xs"></i>';
+                nextBtn.onclick = nextPage;
+            }
+            createDots();
+        }
+
+        function nextPage() { if (currentPage < totalPages - 1) { currentPage++; renderPage(); } }
+        function prevPage() { if (currentPage > 0) { currentPage--; renderPage(); } }
+
+        window.onload = renderPage;
+    </script>
+</body>
+</html>

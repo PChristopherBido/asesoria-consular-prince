@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Permiso de Viaje NNA - Prince Christopher Bido</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap');
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+        .page-transition { animation: fadeIn 0.4s ease-out; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        .indicator-dot { transition: all 0.3s ease; }
+        .indicator-dot.active { width: 24px; background-color: #ef4444; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900">
+    <div id="app" class="max-w-md mx-auto min-h-screen bg-white shadow-2xl relative overflow-hidden flex flex-col">
+
+        <!-- Header Minimalista (Solo progreso para las páginas iniciales) -->
+        <div id="simple-header" class="px-6 pt-10 pb-4 flex justify-between items-center border-b border-slate-50 bg-white sticky top-0 z-20">
+            <div>
+                <p class="text-[10px] font-bold text-red-600 uppercase tracking-widest">Servicio de Menores</p>
+                <h2 id="dynamic-title" class="text-lg font-extrabold text-slate-800">Cargando...</h2>
+            </div>
+            <!-- Indicadores de Progreso -->
+            <div class="flex gap-1.5" id="dots-container"></div>
+        </div>
+
+        <!-- Área de Contenido Dinámico -->
+        <div class="flex-grow px-6 pb-32 pt-6 overflow-y-auto page-transition" id="content-area">
+            <!-- El contenido cambia mediante JS -->
+        </div>
+
+        <!-- Navegación Inferior -->
+        <div class="absolute bottom-0 left-0 w-full p-6 bg-white/90 backdrop-blur-lg border-t border-slate-100 flex justify-between items-center gap-4">
+            <button onclick="prevPage()" id="prev-btn" class="flex-1 py-4 px-4 rounded-2xl font-bold text-slate-400 hover:bg-slate-50 transition-colors hidden">
+                <i class="fa-solid fa-arrow-left mr-2 text-xs"></i> Atrás
+            </button>
+            <button onclick="nextPage()" id="next-btn" class="flex-[2] py-4 px-6 rounded-2xl font-bold text-white bg-red-600 hover:bg-red-700 shadow-xl shadow-red-100 transition-all active:scale-95 flex items-center justify-center gap-2">
+                <span>Continuar</span>
+                <i class="fa-solid fa-arrow-right text-xs"></i>
+            </button>
+        </div>
+    </div>
+
+    <script>
+        let currentPage = 0;
+        const totalPages = 4;
+        const whatsappNumber = "8297826451";
+
+        const pages = [
+            {
+                title: "Permiso de Viaje NNA",
+                content: `
+                    <div class="text-center mt-2">
+                        <div class="w-20 h-20 bg-red-50 rounded-3xl flex items-center justify-center mx-auto mb-6 text-red-600 shadow-inner">
+                            <i class="fa-solid fa-plane-departure text-3xl"></i>
+                        </div>
+                        <h2 class="text-2xl font-bold text-slate-800 mb-4 italic">Salida de Menores de RD</h2>
+                        <p class="text-slate-500 text-sm leading-relaxed">Garantizamos que el proceso de salida de tus hijos sea legal, rápido y sin contratiempos en migración.</p>
+                        <div class="mt-8 p-4 bg-slate-50 rounded-2xl border border-slate-100 flex items-center gap-4 text-left">
+                            <i class="fa-solid fa-shield-halved text-red-500 text-xl"></i>
+                            <p class="text-xs text-slate-600 font-medium italic">Documentación avalada por la Dirección General de Migración (DGM).</p>
+                        </div>
+                    </div>`
+            },
+            {
+                title: "¿Qué Necesitamos?",
+                content: `
+                    <div class="space-y-4">
+                        <div class="p-4 bg-white border border-slate-100 rounded-2xl shadow-sm">
+                            <div class="flex items-center gap-3 mb-2">
+                                <i class="fa-solid fa-id-card text-red-500"></i>
+                                <h4 class="font-bold text-sm">Documentos de Identidad</h4>
+                            </div>
+                            <p class="text-xs text-slate-500">Cédula del padre o madre solicitante y Acta de Nacimiento del menor.</p>
+                        </div>
+                        <div class="p-4 bg-white border border-slate-100 rounded-2xl shadow-sm">
+                            <div class="flex items-center gap-3 mb-2">
+                                <i class="fa-solid fa-passport text-red-500"></i>
+                                <h4 class="font-bold text-sm">Pasaportes Vigentes</h4>
+                            </div>
+                            <p class="text-xs text-slate-500">Copia de la página principal del pasaporte del menor y del acompañante.</p>
+                        </div>
+                        <div class="p-4 bg-white border border-slate-100 rounded-2xl shadow-sm">
+                            <div class="flex items-center gap-3 mb-2">
+                                <i class="fa-solid fa-camera text-red-500"></i>
+                                <h4 class="font-bold text-sm">Fotos 2x2</h4>
+                            </div>
+                            <p class="text-xs text-slate-500">Foto reciente del menor de frente y con fondo blanco.</p>
+                        </div>
+                    </div>`
+            },
+            {
+                title: "Nuestro Proceso",
+                content: `
+                    <div class="relative pl-8 space-y-8 before:content-[''] before:absolute before:left-[11px] before:top-2 before:bottom-2 before:w-[2px] before:bg-slate-100">
+                        <div class="relative">
+                            <div class="absolute -left-[31px] top-0 w-6 h-6 bg-red-600 rounded-full border-4 border-white shadow-sm"></div>
+                            <h4 class="font-bold text-sm text-slate-800">Redacción Notarial</h4>
+                            <p class="text-xs text-slate-500">Elaboración del acto auténtico firmado por abogado notario.</p>
+                        </div>
+                        <div class="relative">
+                            <div class="absolute -left-[31px] top-0 w-6 h-6 bg-red-400 rounded-full border-4 border-white shadow-sm"></div>
+                            <h4 class="font-bold text-sm text-slate-800">Legalización</h4>
+                            <p class="text-xs text-slate-500">Trámite ante la Procuraduría General de la República.</p>
+                        </div>
+                        <div class="relative">
+                            <div class="absolute -left-[31px] top-0 w-6 h-6 bg-red-200 rounded-full border-4 border-white shadow-sm"></div>
+                            <h4 class="font-bold text-sm text-slate-800">Carga en DGM</h4>
+                            <p class="text-[11px] text-slate-500 italic uppercase font-bold tracking-tighter">Nosotros subimos todo al sistema para que solo retires.</p>
+                        </div>
+                    </div>`
+            },
+            {
+                title: "Seguridad para tus hijos",
+                // AQUÍ SE INTEGRA TU IDENTIDAD SOLO AL FINAL
+                content: `
+                    <div class="text-center mt-2 flex flex-col items-center">
+
+                        <!-- 1. FOTO (Estilo Index) -->
+                        <div class="relative w-28 h-28 mb-4">
+                            <div class="absolute inset-0 bg-gradient-to-tr from-red-600 to-red-400 rounded-full animate-pulse opacity-30 blur-sm"></div>
+                            <div class="relative w-full h-full rounded-full border-4 border-white overflow-hidden shadow-xl bg-slate-800 flex items-center justify-center">
+                                <img src="perfil.png" alt="Prince Christopher Bido" class="w-full h-full object-cover" onerror="this.src='https://ui-avatars.com/api/?name=Prince+Bido&background=ef4444&color=fff'">
+                            </div>
+                        </div>
+
+                        <!-- 2. NOMBRE -->
+                        <h1 class="text-2xl font-extrabold text-slate-800 leading-tight">Prince Christopher Bido</h1>
+                        <p class="text-[10px] font-bold text-red-600 uppercase tracking-widest mt-1 mb-6">Asesor Migratorio Certificado</p>
+
+                        <p class="text-slate-500 text-sm mb-8 px-4">Evita contratiempos de último minuto en el aeropuerto. Deja el papeleo legal en mis manos.</p>
+
+                        <div class="space-y-4 w-full">
+                            <!-- 3. ENLACE WHATSAPP -->
+                            <a href="https://wa.me/${whatsappNumber}" class="flex items-center justify-center gap-3 w-full py-5 bg-green-500 hover:bg-green-600 text-white rounded-2xl font-bold shadow-xl shadow-green-100 transition-all active:scale-95">
+                                <i class="fa-brands fa-whatsapp text-2xl"></i>
+                                <span>Iniciar Trámite Hoy</span>
+                            </a>
+                            <a href="index.html" class="inline-block py-3 text-xs font-bold text-slate-400 uppercase tracking-widest hover:text-red-600 transition-colors">Volver al Menú</a>
+                        </div>
+                    </div>`
+            }
+        ];
+
+        function createDots() {
+            const container = document.getElementById('dots-container');
+            container.innerHTML = '';
+            for (let i = 0; i < totalPages; i++) {
+                const dot = document.createElement('div');
+                dot.className = `indicator-dot h-1.5 rounded-full ${i === currentPage ? 'active' : 'w-1.5 bg-slate-200'}`;
+                container.appendChild(dot);
+            }
+        }
+
+        function renderPage() {
+            const contentArea = document.getElementById('content-area');
+            const header = document.getElementById('simple-header');
+            const titleElement = document.getElementById('dynamic-title');
+
+            contentArea.classList.remove('page-transition');
+            void contentArea.offsetWidth; // Force reflow
+            contentArea.classList.add('page-transition');
+
+            // Actualizar Título del Header
+            titleElement.innerText = pages[currentPage].title;
+
+            // Ocultar header en la última página para que tu foto sea la protagonista
+            if (currentPage === totalPages - 1) {
+                header.classList.add('hidden');
+            } else {
+                header.classList.remove('hidden');
+            }
+
+            contentArea.innerHTML = `
+                <h3 class="text-xs font-black uppercase tracking-[0.2em] text-slate-300 mb-4 ${currentPage === totalPages - 1 ? 'hidden' : ''}">Sección ${currentPage + 1}</h3>
+                ${pages[currentPage].content}
+            `;
+
+            document.getElementById('prev-btn').classList.toggle('hidden', currentPage === 0);
+            const nextBtn = document.getElementById('next-btn');
+
+            if (currentPage === totalPages - 1) {
+                nextBtn.innerHTML = '<span>Finalizar</span> <i class="fa-solid fa-check"></i>';
+                nextBtn.onclick = () => window.location.href = `https://wa.me/${whatsappNumber}`;
+            } else {
+                nextBtn.innerHTML = '<span>Continuar</span> <i class="fa-solid fa-arrow-right text-xs"></i>';
+                nextBtn.onclick = nextPage;
+            }
+            createDots();
+        }
+
+        function nextPage() { if (currentPage < totalPages - 1) { currentPage++; renderPage(); } }
+        function prevPage() { if (currentPage > 0) { currentPage--; renderPage(); } }
+
+        window.onload = renderPage;
+    </script>
+</body>
+</html>
