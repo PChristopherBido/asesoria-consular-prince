@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visa Canadá desde RD - Guía Interactiva 2026</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+
+    <style>
+        body { font-family: 'Montserrat', sans-serif; background-color: #F3F4F6; }
+
+        /* --- CHART CONTAINER STYLES (MANDATORY) --- */
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 350px;
+            max-height: 400px;
+        }
+
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 400px;
+            }
+        }
+
+        /* --- CUSTOM UTILITIES --- */
+        .maple-bg {
+            background-color: #C53030;
+            background-image: radial-gradient(circle at 10% 20%, rgba(255,255,255,0.1) 0%, transparent 20%),
+                              radial-gradient(circle at 90% 80%, rgba(255,255,255,0.1) 0%, transparent 20%);
+        }
+
+        .step-connector::after {
+            content: '';
+            position: absolute;
+            top: 40px;
+            bottom: -40px;
+            left: 24px;
+            width: 4px;
+            background: #E5E7EB;
+            z-index: 0;
+        }
+        .step-item:last-child .step-connector::after {
+            display: none;
+        }
+
+        .card-shadow {
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+    </style>
+    <!--
+        Palette: "Canada Vibrant"
+        Primary: #C53030 (Canadian Red)
+        Secondary: #FFFFFF (White)
+        Neutral: #374151 (Dark Gray)
+        Background: #F3F4F6 (Light Gray)
+    -->
+    <!--
+        NARRATIVE PLAN:
+        1. Intro: The "No Consulate" reality check.
+        2. Roles Breakdown (Doughnut Chart): Visualizing who does what (IRCC vs VAC vs Mexico).
+        3. The Process (Timeline): 4 Steps from Online to Return.
+        4. The Ideal Candidate (Radar Chart): Visualizing the "Checklist" as a profile score.
+        5. Document Hierarchy (Bar Chart): Weight of each document.
+        6. Conclusion: Call to Action.
+    -->
+    <!-- CONFIRMATION: NO SVG USED. NO MERMAID JS USED. -->
+</head>
+<body class="text-gray-800">
+
+    <!-- HERO SECTION -->
+    <header class="maple-bg text-white shadow-lg relative overflow-hidden">
+        <div class="max-w-6xl mx-auto px-6 py-16 md:py-24 text-center relative z-10">
+            <span class="inline-block bg-white text-[#C53030] px-4 py-1 rounded-full text-xs font-bold uppercase tracking-widest mb-4 shadow-md">Guía Oficial 2026</span>
+            <h1 class="text-4xl md:text-6xl font-black mb-4 tracking-tight">VISA CANADIENSE</h1>
+            <p class="text-xl md:text-2xl font-light opacity-90 max-w-2xl mx-auto">
+                La guía definitiva para solicitantes desde República Dominicana. Desmitificando el proceso paso a paso.
+            </p>
+        </div>
+        <!-- Decorative Circle (Canvas Simulation via CSS) -->
+        <div class="absolute top-0 left-0 w-32 h-32 bg-white opacity-10 rounded-full -translate-x-1/2 -translate-y-1/2"></div>
+    </header>
+
+    <main class="max-w-5xl mx-auto px-6 -mt-10 relative z-20 space-y-16 pb-20">
+
+        <!-- SECTION 1: THE REALITY CHECK (Roles) -->
+        <section class="bg-white rounded-2xl card-shadow p-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+                <div>
+                    <h2 class="text-2xl font-bold text-[#C53030] mb-4">La Realidad del Trámite</h2>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        Existe un mito común: "Voy a la Embajada en Santo Domingo a buscar mi visa". <strong>Esto es falso.</strong> El proceso es descentralizado y digital. Entender quién hace qué es el primer paso para no perder tiempo.
+                    </p>
+                    <div class="bg-gray-50 p-4 rounded-lg border-l-4 border-[#C53030]">
+                        <p class="text-sm font-semibold">📍 Dato Clave:</p>
+                        <p class="text-sm text-gray-600">Tu solicitud viaja virtualmente a México. En RD solo hay gestión logística.</p>
+                    </div>
+                </div>
+                <div>
+                    <div class="chart-container">
+                        <canvas id="rolesChart"></canvas>
+                    </div>
+                    <p class="text-center text-xs text-gray-400 mt-2">Distribución de responsabilidades en el proceso</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 2: THE 4-STEP JOURNEY (Timeline) -->
+        <section>
+            <div class="text-center mb-10">
+                <h2 class="text-3xl font-black text-gray-800">EL CAMINO A CANADÁ</h2>
+                <p class="text-gray-500 mt-2">Cuatro paradas obligatorias desde tu computadora hasta el aeropuerto.</p>
+            </div>
+
+            <div class="space-y-0">
+                <!-- Step 1 -->
+                <div class="step-item relative pl-16 md:pl-24 py-4 group">
+                    <div class="step-connector absolute left-0 top-0 bottom-0 w-16 md:w-24 flex justify-center items-start pt-4">
+                        <div class="w-12 h-12 bg-[#C53030] text-white rounded-full flex items-center justify-center font-bold text-xl shadow-lg z-10 group-hover:scale-110 transition-transform">1</div>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl card-shadow border border-gray-100 hover:border-[#C53030] transition-colors">
+                        <h3 class="text-xl font-bold text-gray-800">Solicitud 100% Online</h3>
+                        <p class="text-gray-600 mt-2 text-sm">
+                            Todo inicia en el portal de <strong>IRCC</strong>. Aquí creas tu cuenta GCKey, llenas los formularios digitales y subes tus pruebas.
+                        </p>
+                        <span class="inline-block mt-3 text-xs font-bold text-[#C53030] bg-red-50 px-2 py-1 rounded">Plataforma Digital</span>
+                    </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="step-item relative pl-16 md:pl-24 py-4 group">
+                    <div class="step-connector absolute left-0 top-0 bottom-0 w-16 md:w-24 flex justify-center items-start pt-4">
+                        <div class="w-12 h-12 bg-white border-4 border-[#C53030] text-[#C53030] rounded-full flex items-center justify-center font-bold text-xl shadow-lg z-10 group-hover:scale-110 transition-transform">2</div>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl card-shadow border border-gray-100 hover:border-[#C53030] transition-colors">
+                        <h3 class="text-xl font-bold text-gray-800">Biométricos en Santo Domingo</h3>
+                        <p class="text-gray-600 mt-2 text-sm">
+                            Cita presencial en el <strong>VAC (VFS Global)</strong>. Se encuentra en una plaza comercial conocida. Aquí te toman huellas y fotos.
+                        </p>
+                        <span class="inline-block mt-3 text-xs font-bold text-gray-500 bg-gray-100 px-2 py-1 rounded">Presencial (VAC)</span>
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="step-item relative pl-16 md:pl-24 py-4 group">
+                    <div class="step-connector absolute left-0 top-0 bottom-0 w-16 md:w-24 flex justify-center items-start pt-4">
+                        <div class="w-12 h-12 bg-gray-800 text-white rounded-full flex items-center justify-center font-bold text-xl shadow-lg z-10 group-hover:scale-110 transition-transform">3</div>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl card-shadow border border-gray-100 hover:border-[#C53030] transition-colors">
+                        <h3 class="text-xl font-bold text-gray-800">Análisis y Decisión</h3>
+                        <p class="text-gray-600 mt-2 text-sm">
+                            Tu expediente es revisado por oficiales en la <strong>Ciudad de México (CDMX)</strong>. Ellos evalúan tus lazos y toman la decisión final.
+                        </p>
+                        <span class="inline-block mt-3 text-xs font-bold text-gray-500 bg-gray-100 px-2 py-1 rounded">Remoto (Internacional)</span>
+                    </div>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="step-item relative pl-16 md:pl-24 py-4 group">
+                    <div class="step-connector absolute left-0 top-0 bottom-0 w-16 md:w-24 flex justify-center items-start pt-4">
+                        <div class="w-12 h-12 bg-[#C53030] text-white rounded-full flex items-center justify-center font-bold text-xl shadow-lg z-10 group-hover:scale-110 transition-transform">4</div>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl card-shadow border border-gray-100 hover:border-[#C53030] transition-colors">
+                        <h3 class="text-xl font-bold text-gray-800">Retorno del Pasaporte</h3>
+                        <p class="text-gray-600 mt-2 text-sm">
+                            Una vez procesado, el pasaporte regresa al VAC en Santo Domingo para que lo recojas o te lo envíen por mensajería.
+                        </p>
+                        <span class="inline-block mt-3 text-xs font-bold text-green-600 bg-green-50 px-2 py-1 rounded">Entrega Final</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 3: THE IDEAL PROFILE (Radar) -->
+        <section class="grid grid-cols-1 lg:grid-cols-2 gap-8 bg-gray-800 text-white rounded-2xl p-8 card-shadow">
+            <div class="flex flex-col justify-center">
+                <h2 class="text-2xl font-bold mb-4">¿Qué busca el Oficial?</h2>
+                <p class="text-gray-300 mb-6 text-sm leading-relaxed">
+                    A diferencia de la entrevista, aquí tu perfil se defiende solo con documentos. El gráfico muestra el balance ideal de un solicitante aprobado versus uno incompleto.
+                </p>
+                <ul class="space-y-3 text-sm">
+                    <li class="flex items-center"><span class="w-3 h-3 bg-[#C53030] rounded-full mr-3"></span>Solvencia (¿Puedes pagar el viaje?)</li>
+                    <li class="flex items-center"><span class="w-3 h-3 bg-[#C53030] rounded-full mr-3"></span>Lazos (¿Volverás a RD?)</li>
+                    <li class="flex items-center"><span class="w-3 h-3 bg-[#C53030] rounded-full mr-3"></span>Historial (¿Has viajado antes?)</li>
+                </ul>
+            </div>
+            <div class="bg-white/5 rounded-xl p-4 backdrop-blur-sm border border-white/10">
+                <div class="chart-container">
+                    <canvas id="profileRadar"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 4: DOCUMENT CHECKLIST (Bar) -->
+        <section class="bg-white rounded-2xl card-shadow p-8">
+            <h2 class="text-2xl font-bold text-gray-800 mb-6 text-center">Checklist de Documentos Vitales</h2>
+            <p class="text-center text-gray-500 max-w-2xl mx-auto mb-8">
+                No todos los documentos tienen el mismo peso. Aquí te mostramos la importancia relativa de cada requisito para tu aplicación digital.
+            </p>
+            <div class="chart-container mx-auto">
+                <canvas id="docsBar"></canvas>
+            </div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer class="text-center border-t border-gray-200 pt-10">
+            <h3 class="text-xl font-bold text-[#C53030] mb-2">¿Listo para aplicar?</h3>
+            <p class="text-gray-500 mb-6">Recuerda usar siempre los canales oficiales del Gobierno de Canadá.</p>
+            <div class="flex justify-center gap-4">
+                <button class="bg-[#C53030] text-white px-8 py-3 rounded-full font-bold hover:bg-red-700 transition-colors shadow-lg">
+                    Ir al Portal IRCC
+                </button>
+            </div>
+            <p class="text-xs text-gray-400 mt-8">
+                Fuente: Información pública sobre procesos migratorios. Esta infografía es educativa.
+            </p>
+        </footer>
+
+    </main>
+
+    <script>
+        // --- UTILITY: Label Wrapping (16 chars) ---
+        function wrapLabel(str, maxChars) {
+            if (str.length <= maxChars) return str;
+            const words = str.split(' ');
+            const lines = [];
+            let currentLine = words[0];
+
+            for (let i = 1; i < words.length; i++) {
+                if (currentLine.length + 1 + words[i].length <= maxChars) {
+                    currentLine += ' ' + words[i];
+                } else {
+                    lines.push(currentLine);
+                    currentLine = words[i];
+                }
+            }
+            lines.push(currentLine);
+            return lines;
+        }
+
+        // --- GLOBAL TOOLTIP CONFIG ---
+        const tooltipConfig = {
+            callbacks: {
+                title: function(tooltipItems) {
+                    const item = tooltipItems[0];
+                    let label = item.chart.data.labels[item.dataIndex];
+                    if (Array.isArray(label)) {
+                        return label.join(' ');
+                    } else {
+                        return label;
+                    }
+                }
+            }
+        };
+
+        // --- CHART 1: ROLES BREAKDOWN (Doughnut) ---
+        const ctxRoles = document.getElementById('rolesChart').getContext('2d');
+        const rolesLabels = ['IRCC (Digital)', 'VFS Global (Logística)', 'Embajada CDMX (Decisión)'];
+        const rolesWrapped = rolesLabels.map(l => wrapLabel(l, 16));
+
+        new Chart(ctxRoles, {
+            type: 'doughnut',
+            data: {
+                labels: rolesWrapped,
+                datasets: [{
+                    data: [40, 20, 40], // Weight estimation
+                    backgroundColor: [
+                        '#374151', // Dark Gray (Digital)
+                        '#9CA3AF', // Light Gray (Logistics)
+                        '#C53030'  // Red (Decision - Most Important color)
+                    ],
+                    borderWidth: 0,
+                    hoverOffset: 10
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { position: 'bottom', labels: { usePointStyle: true, padding: 20 } },
+                    tooltip: tooltipConfig
+                }
+            }
+        });
+
+        // --- CHART 2: IDEAL PROFILE (Radar) ---
+        const ctxRadar = document.getElementById('profileRadar').getContext('2d');
+        const radarLabels = ['Lazos Familiares', 'Solvencia Económica', 'Historial Viajes', 'Carta Trabajo', 'Claridad Formulario'];
+        const radarWrapped = radarLabels.map(l => wrapLabel(l, 16));
+
+        new Chart(ctxRadar, {
+            type: 'radar',
+            data: {
+                labels: radarWrapped,
+                datasets: [{
+                    label: 'Perfil Ideal',
+                    data: [9, 10, 8, 9, 10],
+                    fill: true,
+                    backgroundColor: 'rgba(197, 48, 48, 0.5)', // Red transparent
+                    borderColor: '#C53030',
+                    pointBackgroundColor: '#C53030',
+                    pointBorderColor: '#fff',
+                },
+                {
+                    label: 'Perfil Incompleto',
+                    data: [4, 5, 2, 3, 6],
+                    fill: true,
+                    backgroundColor: 'rgba(255, 255, 255, 0.1)',
+                    borderColor: '#9CA3AF',
+                    pointBackgroundColor: '#9CA3AF',
+                    borderDash: [5, 5]
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    r: {
+                        angleLines: { color: 'rgba(255,255,255,0.2)' },
+                        grid: { color: 'rgba(255,255,255,0.1)' },
+                        pointLabels: { color: '#ffffff', font: { size: 11 } },
+                        ticks: { display: false, backdropColor: 'transparent' }
+                    }
+                },
+                plugins: {
+                    legend: { labels: { color: 'white' } },
+                    tooltip: tooltipConfig
+                }
+            }
+        });
+
+        // --- CHART 3: DOCUMENTS HIERARCHY (Bar) ---
+        const ctxBar = document.getElementById('docsBar').getContext('2d');
+        const barLabels = ['Pasaporte Vigente', 'Prueba de Fondos', 'Carta de Trabajo', 'Historial Bancario', 'Itinerario Viaje'];
+        const barWrapped = barLabels.map(l => wrapLabel(l, 16));
+
+        new Chart(ctxBar, {
+            type: 'bar',
+            data: {
+                labels: barWrapped,
+                datasets: [{
+                    label: 'Nivel de Importancia (1-10)',
+                    data: [10, 10, 9, 9, 7],
+                    backgroundColor: [
+                        '#C53030', // Critical
+                        '#C53030', // Critical
+                        '#374151', // High
+                        '#374151', // High
+                        '#9CA3AF'  // Medium
+                    ],
+                    borderRadius: 5
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                indexAxis: 'y', // Horizontal bar for readability of long names
+                scales: {
+                    x: {
+                        grid: { display: false },
+                        max: 11
+                    },
+                    y: {
+                        grid: { display: false }
+                    }
+                },
+                plugins: {
+                    legend: { display: false },
+                    tooltip: tooltipConfig
+                }
+            }
+        });
+
+    </script>
+</body>
+</html>
