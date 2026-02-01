@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visa Schengen desde RD - Guía BLS 2026</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+
+    <style>
+        body { font-family: 'Montserrat', sans-serif; background-color: #F8FAFC; }
+
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 350px;
+            max-height: 400px;
+        }
+
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 400px;
+            }
+        }
+
+        .euro-bg {
+            background-color: #003399; /* Azul Unión Europea */
+            background-image: radial-gradient(circle at 10% 20%, rgba(255, 204, 0, 0.15) 0%, transparent 20%),
+                              radial-gradient(circle at 90% 80%, rgba(255, 204, 0, 0.1) 0%, transparent 20%);
+        }
+
+        .card-shadow {
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        .step-pill {
+            background: #FFCC00; /* Amarillo UE */
+            color: #003399;
+        }
+    </style>
+    <!--
+        Palette: "European Vibrant"
+        Primary: #003399 (EU Blue)
+        Accent: #FFCC00 (EU Gold/Yellow)
+        Neutral: #1E293B (Slate)
+        Background: #F8FAFC
+    -->
+    <!--
+        NARRATIVE PLAN:
+        1. Intro: Schengen Area and BLS International context.
+        2. Destination Rule (Pie Chart): Where to apply based on stay duration.
+        3. The BLS Process (Visual Steps): Appointment, Submission, Biometrics.
+        4. Insurance & Logistics (Radar Chart): Coverage requirements (30k Euro).
+        5. Document Importance (Bar Chart): Focus on insurance, funds, and ties.
+        6. Conclusion: CTA for Euro-travelers.
+    -->
+    <!-- CONFIRMATION: NO SVG USED. NO MERMAID JS USED. -->
+</head>
+<body class="text-slate-800">
+
+    <!-- HERO SECTION -->
+    <header class="euro-bg text-white shadow-lg relative overflow-hidden">
+        <div class="max-w-6xl mx-auto px-6 py-16 md:py-24 text-center relative z-10">
+            <span class="inline-block bg-[#FFCC00] text-[#003399] px-4 py-1 rounded-full text-xs font-bold uppercase tracking-widest mb-4 shadow-md">Euro-Guía 2026</span>
+            <h1 class="text-4xl md:text-6xl font-black mb-4 tracking-tight">VISA SCHENGEN</h1>
+            <p class="text-xl md:text-2xl font-light opacity-90 max-w-2xl mx-auto">
+                Tu puerta a España, Francia y 27 países más desde República Dominicana vía BLS International.
+            </p>
+        </div>
+        <div class="absolute top-0 right-0 w-64 h-64 bg-[#FFCC00] opacity-5 rounded-full translate-x-1/2 -translate-y-1/2"></div>
+    </header>
+
+    <main class="max-w-5xl mx-auto px-6 -mt-10 relative z-20 space-y-16 pb-20">
+
+        <!-- SECTION 1: THE JURISDICTION RULE -->
+        <section class="bg-white rounded-2xl card-shadow p-8 border-t-8 border-[#003399]">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+                <div>
+                    <h2 class="text-2xl font-bold text-[#003399] mb-4">¿Dónde solicitar?</h2>
+                    <p class="text-slate-600 mb-6 leading-relaxed">
+                        Para viajar a Europa, debes aplicar a través de **BLS International** si tu destino principal es España. Si es Francia, el trámite también se gestiona bajo jurisdicción europea específica en RD. La regla de oro: solicita donde pases más noches.
+                    </p>
+                    <div class="bg-blue-50 p-4 rounded-lg border-l-4 border-[#003399]">
+                        <p class="text-sm font-semibold text-[#003399]">🇪🇺 Jurisdicción:</p>
+                        <p class="text-sm text-slate-600">BLS gestiona las solicitudes para el Consulado General de España en Santo Domingo.</p>
+                    </div>
+                </div>
+                <div>
+                    <div class="chart-container">
+                        <canvas id="destinationsChart"></canvas>
+                    </div>
+                    <p class="text-center text-xs text-slate-400 mt-2">Distribución de noches por país (Ejemplo de aplicación)</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 2: THE BLS JOURNEY -->
+        <section>
+            <div class="text-center mb-10">
+                <h2 class="text-3xl font-black text-slate-800">EL PROCESO EN BLS</h2>
+                <p class="text-slate-500 mt-2">Pasos críticos para una aplicación exitosa en el centro de recepción.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Step 1 -->
+                <div class="bg-white p-8 rounded-2xl card-shadow border-b-4 border-[#FFCC00] flex flex-col items-center text-center">
+                    <div class="w-16 h-16 bg-[#003399] text-white rounded-full flex items-center justify-center text-2xl font-black mb-4">01</div>
+                    <h3 class="font-bold text-lg mb-2">Cita Previa</h3>
+                    <p class="text-sm text-slate-500">Se obtiene exclusivamente en la web de BLS. ¡Debes ser rápido, los cupos vuelan!</p>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="bg-white p-8 rounded-2xl card-shadow border-b-4 border-[#003399] flex flex-col items-center text-center">
+                    <div class="w-16 h-16 bg-[#FFCC00] text-[#003399] rounded-full flex items-center justify-center text-2xl font-black mb-4">02</div>
+                    <h3 class="font-bold text-lg mb-2">Entrega y Biometría</h3>
+                    <p class="text-sm text-slate-500">Cita presencial en Unicentro Plaza. Entrega física de documentos y toma de huellas.</p>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="bg-white p-8 rounded-2xl card-shadow border-b-4 border-slate-800 flex flex-col items-center text-center">
+                    <div class="w-16 h-16 bg-slate-800 text-white rounded-full flex items-center justify-center text-2xl font-black mb-4">03</div>
+                    <h3 class="font-bold text-lg mb-2">Decisión Consular</h3>
+                    <p class="text-sm text-slate-500">BLS envía tu pasaporte al Consulado de España. Ellos deciden en un plazo de 15 a 45 días.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 3: CORE REQUIREMENTS (Radar) -->
+        <section class="grid grid-cols-1 lg:grid-cols-2 gap-8 bg-slate-900 text-white rounded-3xl p-8 card-shadow overflow-hidden relative">
+            <div class="flex flex-col justify-center z-10">
+                <h2 class="text-2xl font-bold mb-4 text-[#FFCC00]">Requisitos No Negociables</h2>
+                <p class="text-slate-300 mb-6 text-sm leading-relaxed">
+                    Schengen exige un estándar de seguridad alto. Tu perfil debe cumplir con coberturas específicas de salud y garantías de retorno.
+                </p>
+                <div class="space-y-4">
+                    <div class="flex items-start">
+                        <div class="w-6 h-6 rounded bg-[#FFCC00] flex-shrink-0 mt-1 mr-3"></div>
+                        <div>
+                            <p class="font-bold text-sm">Seguro de Viaje</p>
+                            <p class="text-xs text-slate-400">Cobertura mínima de €30,000 que incluya repatriación.</p>
+                        </div>
+                    </div>
+                    <div class="flex items-start">
+                        <div class="w-6 h-6 rounded bg-white flex-shrink-0 mt-1 mr-3"></div>
+                        <div>
+                            <p class="font-bold text-sm">Reserva de Vuelo</p>
+                            <p class="text-xs text-slate-400">No compres el ticket real hasta tener la visa aprobada.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white/5 rounded-2xl p-4 backdrop-blur-md border border-white/10">
+                <div class="chart-container">
+                    <canvas id="requirementsRadar"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 4: DOCUMENT PRIORITY (Bar) -->
+        <section class="bg-white rounded-2xl card-shadow p-8">
+            <h2 class="text-2xl font-bold text-slate-800 mb-6 text-center">Peso de los Documentos</h2>
+            <p class="text-center text-slate-500 max-w-2xl mx-auto mb-8 text-sm">
+                La visa Schengen es un proceso de "papel". Si el documento no está, el oficial no puede asumir nada. Así se ponderan los elementos:
+            </p>
+            <div class="chart-container mx-auto">
+                <canvas id="schengenBar"></canvas>
+            </div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer class="text-center pt-10 border-t border-slate-200">
+            <h3 class="text-xl font-bold text-[#003399] mb-2">¡Prepara tu Maleta!</h3>
+            <p class="text-slate-500 mb-8 max-w-lg mx-auto text-sm">Recuerda que BLS ofrece servicios adicionales como premium lounge y fotos, pero no garantizan la aprobación.</p>
+            <div class="flex flex-col md:flex-row justify-center gap-4">
+                <div class="px-6 py-3 bg-[#003399] text-white rounded-xl font-bold shadow-lg">Cita en España (BLS)</div>
+                <div class="px-6 py-3 bg-white text-[#003399] border-2 border-[#003399] rounded-xl font-bold">Cita en Francia (VFS)</div>
+            </div>
+            <p class="text-[10px] text-slate-400 mt-12 uppercase tracking-widest">
+                Información basada en regulaciones Schengen vigentes para 2026.
+            </p>
+        </footer>
+
+    </main>
+
+    <script>
+        // --- UTILITY: Label Wrapping ---
+        function wrapLabel(str, maxChars) {
+            if (str.length <= maxChars) return str;
+            const words = str.split(' ');
+            const lines = [];
+            let currentLine = words[0];
+            for (let i = 1; i < words.length; i++) {
+                if (currentLine.length + 1 + words[i].length <= maxChars) {
+                    currentLine += ' ' + words[i];
+                } else {
+                    lines.push(currentLine);
+                    currentLine = words[i];
+                }
+            }
+            lines.push(currentLine);
+            return lines;
+        }
+
+        const tooltipConfig = {
+            callbacks: {
+                title: function(tooltipItems) {
+                    const item = tooltipItems[0];
+                    let label = item.chart.data.labels[item.dataIndex];
+                    return Array.isArray(label) ? label.join(' ') : label;
+                }
+            }
+        };
+
+        // --- CHART 1: DESTINATION RULE (Pie) ---
+        const ctxDest = document.getElementById('destinationsChart').getContext('2d');
+        new Chart(ctxDest, {
+            type: 'pie',
+            data: {
+                labels: ['España (7 noches)', 'Francia (3 noches)', 'Otros (2 noches)'],
+                datasets: [{
+                    data: [58, 25, 17],
+                    backgroundColor: ['#003399', '#FFCC00', '#1E293B'],
+                    borderWidth: 4,
+                    borderColor: '#ffffff'
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { position: 'bottom', labels: { usePointStyle: true, padding: 20 } },
+                    tooltip: tooltipConfig
+                }
+            }
+        });
+
+        // --- CHART 2: RADAR REQUIREMENTS ---
+        const ctxRadar = document.getElementById('requirementsRadar').getContext('2d');
+        const radarLabels = ['Seguro Médico', 'Fondos Bancarios', 'Arraigo Local', 'Reserva Hotel', 'Lazos Laborales'];
+        const radarWrapped = radarLabels.map(l => wrapLabel(l, 14));
+
+        new Chart(ctxRadar, {
+            type: 'radar',
+            data: {
+                labels: radarWrapped,
+                datasets: [{
+                    label: 'Requisito Crítico',
+                    data: [10, 9, 8, 7, 9],
+                    backgroundColor: 'rgba(255, 204, 0, 0.4)',
+                    borderColor: '#FFCC00',
+                    pointBackgroundColor: '#FFCC00',
+                    pointBorderColor: '#fff',
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    r: {
+                        angleLines: { color: 'rgba(255,255,255,0.1)' },
+                        grid: { color: 'rgba(255,255,255,0.1)' },
+                        pointLabels: { color: '#ffffff', font: { size: 10 } },
+                        ticks: { display: false, backdropColor: 'transparent' }
+                    }
+                },
+                plugins: {
+                    legend: { display: false },
+                    tooltip: tooltipConfig
+                }
+            }
+        });
+
+        // --- CHART 3: SCHENGEN PRIORITY (Bar) ---
+        const ctxBar = document.getElementById('schengenBar').getContext('2d');
+        const barLabels = ['Seguro €30k', 'Estados de Cuenta', 'Certificación Laboral', 'Cita en BLS', 'Fotos Biométricas'];
+        const barWrapped = barLabels.map(l => wrapLabel(l, 16));
+
+        new Chart(ctxBar, {
+            type: 'bar',
+            data: {
+                labels: barWrapped,
+                datasets: [{
+                    label: 'Prioridad',
+                    data: [100, 95, 85, 90, 70],
+                    backgroundColor: ['#003399', '#003399', '#FFCC00', '#FFCC00', '#1E293B'],
+                    borderRadius: 8
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                indexAxis: 'y',
+                scales: {
+                    x: { display: false },
+                    y: { grid: { display: false }, ticks: { font: { size: 11 } } }
+                },
+                plugins: {
+                    legend: { display: false },
+                    tooltip: tooltipConfig
+                }
+            }
+        });
+    </script>
+</body>
+</html>
