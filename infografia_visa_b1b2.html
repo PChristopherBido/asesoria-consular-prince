@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ruta a la Visa Americana B1/B2 - Guía RD 2026</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+
+    <style>
+        body { font-family: 'Roboto', sans-serif; background-color: #f0f2f5; }
+
+        /* Chart Container Strict Styling */
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px; /* Max width constraint */
+            margin-left: auto;
+            margin-right: auto;
+            height: 350px; /* Base height */
+            max-height: 400px;
+        }
+
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 400px;
+            }
+        }
+
+        /* Timeline Connector Line */
+        .timeline-line::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 20px;
+            width: 4px;
+            background: #e5e7eb;
+            z-index: 0;
+        }
+
+        /* Card Hover Effects */
+        .hover-lift {
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .hover-lift:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #002868;
+            border-radius: 4px;
+        }
+    </style>
+    <!--
+        Palette Used: "Patriotic Professional"
+        Primary: #002868 (Deep Navy Blue)
+        Secondary: #C53030 (Vibrant Red)
+        Accent: #F59E0B (Gold/Amber)
+        Background: #F0F2F5 (Light Gray)
+        Surface: #FFFFFF (White)
+    -->
+    <!--
+        Plan Summary:
+        1. Header: Hook and Title.
+        2. Foundation Section: Socioeconomic Audit (Radar Chart).
+        3. Process Map: Vertical Timeline (HTML/CSS).
+        4. Strategy Section: Weight of Components (Donut Chart).
+        5. Logistics Section: CAS vs Embassy Locations (Cards).
+        6. Prep Section: Documents Checklist (Bar Chart).
+        7. Conclusion: Call to Action.
+    -->
+    <!-- NO SVG USED. NO MERMAID JS USED. -->
+</head>
+<body class="text-gray-800">
+
+    <!-- Navigation (Sticky) -->
+    <nav class="sticky top-0 z-50 bg-[#002868] text-white shadow-lg">
+        <div class="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="font-black text-xl tracking-wider">VISA GUIDE <span class="text-[#C53030]">RD</span></div>
+            <div class="text-xs md:text-sm font-medium opacity-90">Edición 2026</div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="bg-white shadow-sm mb-8">
+        <div class="max-w-4xl mx-auto px-6 py-12 text-center">
+            <h1 class="text-4xl md:text-6xl font-black text-[#002868] mb-4">
+                TU RUTA A LA <span class="text-[#C53030]">VISA B1/B2</span>
+            </h1>
+            <p class="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
+                El éxito no es suerte, es estrategia. Descubre el proceso paso a paso para solicitantes dominicanos, desde la evaluación del perfil hasta la entrevista consular.
+            </p>
+            <div class="mt-8 flex justify-center gap-4">
+                <span class="px-4 py-2 bg-blue-50 text-[#002868] font-bold rounded-full text-sm border border-blue-100">Turismo & Negocios</span>
+                <span class="px-4 py-2 bg-red-50 text-[#C53030] font-bold rounded-full text-sm border border-red-100">Trámite RD</span>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-4 pb-16 space-y-16">
+
+        <!-- SECTION 1: SOCIOECONOMIC EVALUATION -->
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center bg-white rounded-2xl shadow-md p-8 border-l-8 border-[#002868]">
+            <div>
+                <h2 class="text-2xl font-bold text-[#002868] mb-4 border-b-2 border-gray-100 pb-2">1. El Cimiento: Evaluación Socioeconómica</h2>
+                <p class="text-gray-600 mb-6 leading-relaxed">
+                    Antes de llenar cualquier formulario, debes auditar tu propia realidad. El oficial consular busca evidencia de <strong>lazos fuertes</strong> que garanticen tu retorno a la República Dominicana. Un perfil equilibrado es la clave.
+                </p>
+                <div class="bg-blue-50 p-4 rounded-lg border border-blue-100 mb-4">
+                    <h3 class="font-bold text-[#002868] text-sm mb-2">FACTORES CRÍTICOS</h3>
+                    <ul class="text-sm space-y-2 text-gray-700">
+                        <li class="flex items-center"><span class="w-2 h-2 bg-[#C53030] rounded-full mr-2"></span>Lazos Familiares (Hijos, Esposa/o)</li>
+                        <li class="flex items-center"><span class="w-2 h-2 bg-[#C53030] rounded-full mr-2"></span>Estabilidad Laboral (Tiempo en empleo)</li>
+                        <li class="flex items-center"><span class="w-2 h-2 bg-[#C53030] rounded-full mr-2"></span>Solvencia Económica (Activos/Ahorros)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="flex flex-col items-center justify-center bg-gray-50 rounded-xl p-4">
+                <h3 class="text-center font-bold text-gray-700 mb-2 text-sm">COMPARATIVA DE PERFILES</h3>
+                <div class="chart-container">
+                    <canvas id="profileRadarChart"></canvas>
+                </div>
+                <p class="text-xs text-center text-gray-500 mt-2 italic">El área azul representa un perfil con alta probabilidad de aprobación.</p>
+            </div>
+        </section>
+
+        <!-- SECTION 2: THE PROCESS TIMELINE -->
+        <section class="bg-white rounded-2xl shadow-md p-8">
+            <h2 class="text-2xl font-bold text-[#002868] mb-6 text-center">La Hoja de Ruta: Paso a Paso</h2>
+            <p class="text-center text-gray-600 max-w-2xl mx-auto mb-10">
+                El proceso en República Dominicana tiene una estructura lineal estricta. Saltarse un paso o realizarlo en desorden puede resultar en retrasos o negaciones.
+            </p>
+
+            <div class="relative timeline-line pl-4 md:pl-0 max-w-3xl mx-auto space-y-8">
+
+                <!-- Step 1 -->
+                <div class="relative flex items-start md:items-center hover-lift group">
+                    <div class="absolute left-0 w-10 h-10 bg-[#002868] text-white rounded-full flex items-center justify-center font-bold z-10 shadow-lg group-hover:bg-[#C53030] transition-colors">1</div>
+                    <div class="ml-16 bg-gray-50 p-6 rounded-xl border border-gray-200 w-full relative">
+                        <h3 class="font-bold text-lg text-gray-800">Formulario DS-160</h3>
+                        <p class="text-sm text-gray-600 mt-1">Tu carta de presentación digital. Debe ser 100% honesto y coincidir con tu evaluación socioeconómica.</p>
+                        <span class="absolute top-4 right-4 text-xs font-bold text-gray-400">Digital</span>
+                    </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="relative flex items-start md:items-center hover-lift group">
+                    <div class="absolute left-0 w-10 h-10 bg-[#002868] text-white rounded-full flex items-center justify-center font-bold z-10 shadow-lg group-hover:bg-[#C53030] transition-colors">2</div>
+                    <div class="ml-16 bg-gray-50 p-6 rounded-xl border border-gray-200 w-full relative">
+                        <h3 class="font-bold text-lg text-gray-800">Registro y Pago</h3>
+                        <p class="text-sm text-gray-600 mt-1">Creación de perfil en ustraveldocs y pago de la tasa consular ($185 USD). Esto habilita el calendario.</p>
+                        <span class="absolute top-4 right-4 text-xs font-bold text-green-600">$185 USD</span>
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="relative flex items-start md:items-center hover-lift group">
+                    <div class="absolute left-0 w-10 h-10 bg-[#002868] text-white rounded-full flex items-center justify-center font-bold z-10 shadow-lg group-hover:bg-[#C53030] transition-colors">3</div>
+                    <div class="ml-16 bg-gray-50 p-6 rounded-xl border border-gray-200 w-full relative">
+                        <h3 class="font-bold text-lg text-gray-800">Cita 1: CAS (Biometría)</h3>
+                        <p class="text-sm text-gray-600 mt-1">Toma de huellas y fotografía. <span class="font-bold text-[#C53030]">¡Nueva Ubicación!</span> Ahora en Sambil Santo Domingo.</p>
+                        <span class="absolute top-4 right-4 text-xs font-bold text-gray-400">Presencial</span>
+                    </div>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="relative flex items-start md:items-center hover-lift group">
+                    <div class="absolute left-0 w-10 h-10 bg-[#C53030] text-white rounded-full flex items-center justify-center font-bold z-10 shadow-lg ring-4 ring-red-100">4</div>
+                    <div class="ml-16 bg-white p-6 rounded-xl border-l-4 border-[#C53030] shadow-sm w-full relative">
+                        <h3 class="font-bold text-lg text-gray-800">Cita 2: Embajada (Entrevista)</h3>
+                        <p class="text-sm text-gray-600 mt-1">Encuentro con el oficial consular en Av. República de Colombia. Aquí se define tu aprobación.</p>
+                        <span class="absolute top-4 right-4 text-xs font-bold text-[#C53030]">Decisivo</span>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- SECTION 3: STRATEGY & LOCATIONS -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+
+            <!-- Strategic Weight Chart -->
+            <section class="bg-white rounded-2xl shadow-md p-8 flex flex-col">
+                <h2 class="text-xl font-bold text-[#002868] mb-4">¿Qué pesa más en la decisión?</h2>
+                <p class="text-sm text-gray-600 mb-6">
+                    Muchos creen que la entrevista lo es todo, pero el formulario DS-160 es la base sobre la cual el cónsul forma su primera impresión.
+                </p>
+                <div class="flex-grow flex items-center justify-center bg-gray-50 rounded-xl p-4">
+                    <div class="chart-container">
+                        <canvas id="weightDonutChart"></canvas>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Locations Visual Map (CSS) -->
+            <section class="bg-[#002868] rounded-2xl shadow-md p-8 text-white flex flex-col justify-between">
+                <div>
+                    <h2 class="text-xl font-bold mb-4 text-white">Ubicaciones Clave</h2>
+                    <p class="text-sm text-blue-100 mb-8">
+                        No te confundas. En Santo Domingo debes visitar dos lugares distintos en días diferentes (o el mismo día si calificas).
+                    </p>
+                </div>
+
+                <div class="space-y-4">
+                    <!-- Location 1 -->
+                    <div class="bg-white/10 backdrop-blur-md p-4 rounded-lg border border-white/20 flex items-start">
+                        <div class="text-2xl mr-4">📍</div>
+                        <div>
+                            <h3 class="font-bold text-[#F59E0B]">CAS (Centro de Atención)</h3>
+                            <p class="text-sm text-gray-200">Sambil Santo Domingo</p>
+                            <p class="text-xs text-gray-400 mt-1">Av. John F. Kennedy</p>
+                            <div class="mt-2 text-xs bg-white/20 inline-block px-2 py-1 rounded">Fotos + Huellas</div>
+                        </div>
+                    </div>
+
+                    <!-- Arrow Down -->
+                    <div class="flex justify-center">
+                        <span class="text-white/50 text-xl font-bold">⬇</span>
+                    </div>
+
+                    <!-- Location 2 -->
+                    <div class="bg-white/10 backdrop-blur-md p-4 rounded-lg border border-white/20 flex items-start">
+                        <div class="text-2xl mr-4">🏛️</div>
+                        <div>
+                            <h3 class="font-bold text-[#F59E0B]">Embajada de los EE. UU.</h3>
+                            <p class="text-sm text-gray-200">Altos de Arroyo Hondo</p>
+                            <p class="text-xs text-gray-400 mt-1">Av. República de Colombia #57</p>
+                            <div class="mt-2 text-xs bg-[#C53030] inline-block px-2 py-1 rounded">Entrevista Final</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- SECTION 4: DOCUMENTS CHECKLIST -->
+        <section class="bg-white rounded-2xl shadow-md p-8">
+            <h2 class="text-2xl font-bold text-[#002868] mb-6 border-b-2 border-gray-100 pb-2">Documentación: Lo Vital vs. Lo Opcional</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="md:col-span-1">
+                    <p class="text-gray-600 leading-relaxed mb-4">
+                        No llenes una carpeta gigante "por si acaso". El oficial tiene poco tiempo. Enfócate en lo obligatorio, pero ten a mano la evidencia de soporte ordenada.
+                    </p>
+                    <div class="p-4 bg-yellow-50 rounded-lg border border-yellow-200">
+                        <p class="text-xs font-bold text-yellow-800 uppercase mb-1">Consejo Pro</p>
+                        <p class="text-sm text-yellow-900">Entrega documentos <strong>solo</strong> si el oficial te los pide explícitamente.</p>
+                    </div>
+                </div>
+                <div class="md:col-span-2">
+                    <div class="chart-container">
+                        <canvas id="docsBarChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="text-center pt-8 border-t border-gray-200">
+            <p class="text-gray-500 text-sm mb-2">Fuente de Datos: Guía de Solicitud Visa B1/B2 (Actualizado 2026)</p>
+            <p class="text-xs text-gray-400">Esta infografía es una herramienta educativa y no garantiza la aprobación del visado.</p>
+            <div class="mt-6">
+                <button class="bg-[#002868] hover:bg-[#C53030] text-white font-bold py-3 px-8 rounded-full shadow-lg transition-colors duration-300">
+                    Iniciar Evaluación
+                </button>
+            </div>
+        </footer>
+
+    </main>
+
+    <script>
+        // --- UTILITY: Label Wrapping Logic (16 chars) ---
+        function wrapLabel(str, maxChars) {
+            if (str.length <= maxChars) return str;
+            const words = str.split(' ');
+            const lines = [];
+            let currentLine = words[0];
+
+            for (let i = 1; i < words.length; i++) {
+                if (currentLine.length + 1 + words[i].length <= maxChars) {
+                    currentLine += ' ' + words[i];
+                } else {
+                    lines.push(currentLine);
+                    currentLine = words[i];
+                }
+            }
+            lines.push(currentLine);
+            return lines;
+        }
+
+        // --- CHART GLOBAL CONFIG: Tooltip Handling for Multiline Labels ---
+        const tooltipPlugin = {
+            callbacks: {
+                title: function(tooltipItems) {
+                    const item = tooltipItems[0];
+                    let label = item.chart.data.labels[item.dataIndex];
+                    if (Array.isArray(label)) {
+                        return label.join(' ');
+                    } else {
+                        return label;
+                    }
+                }
+            }
+        };
+
+        // --- CHART 1: Profile Radar Chart ---
+        const ctxRadar = document.getElementById('profileRadarChart').getContext('2d');
+        const labelsRadar = ['Lazos Familiares', 'Estabilidad Laboral', 'Solvencia Económica', 'Historial de Viajes', 'Arraigo Social'];
+        const wrappedLabelsRadar = labelsRadar.map(l => wrapLabel(l, 16));
+
+        new Chart(ctxRadar, {
+            type: 'radar',
+            data: {
+                labels: wrappedLabelsRadar,
+                datasets: [{
+                    label: 'Perfil Ideal (Aprobado)',
+                    data: [9, 9, 8, 7, 8],
+                    fill: true,
+                    backgroundColor: 'rgba(6, 182, 212, 0.2)', // Light Cyan
+                    borderColor: '#06b6d4',
+                    pointBackgroundColor: '#06b6d4',
+                    pointBorderColor: '#fff',
+                    pointHoverBackgroundColor: '#fff',
+                    pointHoverBorderColor: '#06b6d4'
+                }, {
+                    label: 'Perfil Riesgoso',
+                    data: [3, 4, 2, 1, 3],
+                    fill: true,
+                    backgroundColor: 'rgba(245, 158, 11, 0.2)', // Light Orange
+                    borderColor: '#f59e0b',
+                    pointBackgroundColor: '#f59e0b',
+                    pointBorderColor: '#fff',
+                    pointHoverBackgroundColor: '#fff',
+                    pointHoverBorderColor: '#f59e0b'
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                elements: { line: { borderWidth: 3 } },
+                scales: {
+                    r: {
+                        angleLines: { display: true },
+                        suggestedMin: 0,
+                        suggestedMax: 10,
+                        ticks: { display: false } // Hide numbers for cleaner look
+                    }
+                },
+                plugins: {
+                    tooltip: tooltipPlugin,
+                    legend: { position: 'bottom', labels: { font: { size: 10 } } }
+                }
+            }
+        });
+
+        // --- CHART 2: Strategy Weight Doughnut ---
+        const ctxDonut = document.getElementById('weightDonutChart').getContext('2d');
+        const labelsDonut = ['Formulario DS-160', 'Entrevista Consular', 'Perfil Previo', 'Suerte/Azar'];
+        const wrappedLabelsDonut = labelsDonut.map(l => wrapLabel(l, 16));
+
+        new Chart(ctxDonut, {
+            type: 'doughnut',
+            data: {
+                labels: wrappedLabelsDonut,
+                datasets: [{
+                    label: 'Impacto en la Decisión (%)',
+                    data: [45, 35, 20, 0],
+                    backgroundColor: [
+                        '#002868', // Navy (DS-160)
+                        '#C53030', // Red (Interview)
+                        '#F59E0B', // Gold (Profile)
+                        '#9ca3af'  // Gray (Luck)
+                    ],
+                    hoverOffset: 4
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    tooltip: tooltipPlugin,
+                    legend: { position: 'right', labels: { boxWidth: 12, padding: 15 } }
+                }
+            }
+        });
+
+        // --- CHART 3: Documents Bar Chart ---
+        const ctxBar = document.getElementById('docsBarChart').getContext('2d');
+        const labelsBar = ['Pasaporte Vigente', 'Hoja Conf. DS-160', 'Hoja Cita', 'Carta de Trabajo', 'Banco/Propiedades'];
+        // Split labels for documents
+        const wrappedLabelsBar = labelsBar.map(l => wrapLabel(l, 16));
+
+        new Chart(ctxBar, {
+            type: 'bar',
+            data: {
+                labels: wrappedLabelsBar,
+                datasets: [{
+                    label: 'Nivel de Importancia (1-10)',
+                    data: [10, 10, 10, 7, 6],
+                    backgroundColor: [
+                        '#002868', // Mandatory
+                        '#002868', // Mandatory
+                        '#002868', // Mandatory
+                        '#60a5fa', // Support (Lighter Blue)
+                        '#60a5fa'  // Support
+                    ],
+                    borderRadius: 4
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 12,
+                        ticks: { display: false },
+                        grid: { display: false }
+                    },
+                    x: {
+                        grid: { display: false }
+                    }
+                },
+                plugins: {
+                    tooltip: tooltipPlugin,
+                    legend: { display: false }
+                }
+            }
+        });
+
+    </script>
+</body>
+</html>
